@@ -3,10 +3,12 @@ import 'package:grand_chase_farm_guide/core/app_colors.dart';
 import 'package:grand_chase_farm_guide/core/text_styles.dart';
 
 class AppBarWidget extends PreferredSize {
+  static final double appBarHeight = 110;
+
   final String title;
   AppBarWidget({required this.title})
       : super(
-          preferredSize: Size.fromHeight(110),
+          preferredSize: Size.fromHeight(appBarHeight),
           child: Container(
             height: 110,
             decoration: BoxDecoration(
