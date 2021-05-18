@@ -121,4 +121,22 @@ class TextStyles {
       ),
     ],
   );
+
+  static TextStyle subtitle1 = GoogleFonts.roboto(
+    color: Color.fromRGBO(0, 0, 0, 0.6),
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
+  );
+
+  static TextStyle subtitle2 = GoogleFonts.roboto(
+    color: Color.fromRGBO(0, 0, 0, 0.6),
+    fontWeight: FontWeight.w500,
+    fontSize: 14,
+  );
+
+  static TextStyle body2 = GoogleFonts.roboto(
+    color: Color.fromRGBO(0, 0, 0, 0.6),
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+  );
 }
