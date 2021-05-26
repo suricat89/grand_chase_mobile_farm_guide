@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grand_chase_farm_guide/likability_list/likability_list_repository.dart';
 import 'package:grand_chase_farm_guide/shared/widgets/app_bar_widget/app_bar_widget.dart';
 import 'package:grand_chase_farm_guide/shared/widgets/image_card_widget/image_card_model.dart';
+import 'package:grand_chase_farm_guide/shared/widgets/image_card_widget/image_card_widget.dart';
 
 class LikabilityListPage extends StatelessWidget {
   const LikabilityListPage({Key? key}) : super(key: key);
@@ -23,12 +24,27 @@ class LikabilityListPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(pagePadding),
         child: GridView.count(
-            crossAxisCount: gridHorizontalSize,
-            crossAxisSpacing: gridSpacing,
-            mainAxisSpacing: gridSpacing,
-            children: likabilityCharacters
-                .map((e) => Center(child: e.imageCardWidget))
-                .toList()),
+          crossAxisCount: gridHorizontalSize,
+          crossAxisSpacing: gridSpacing,
+          mainAxisSpacing: gridSpacing,
+          children: likabilityCharacters
+              .map(
+                (e) => Center(
+                  child: ImageCardWidget(
+                    imageAssetPath: e.imageAssetPath,
+                    width: e.width,
+                    height: e.height,
+                    title: e.title,
+                    textStyle: e.textStyle,
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => e.nextPage));
+                    },
+                  ),
+                ),
+              )
+              .toList(),
+        ),
       ),
     );
   }
