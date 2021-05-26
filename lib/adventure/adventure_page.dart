@@ -3,10 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:grand_chase_farm_guide/adventure/adventure_filter_widget/adventure_filter_widget.dart';
 import 'package:grand_chase_farm_guide/adventure/adventure_page_controller.dart';
 import 'package:grand_chase_farm_guide/adventure/adventure_stage_widget/adventure_stage_widget.dart';
-import 'package:grand_chase_farm_guide/adventure/adventure_repository.dart';
+import 'package:grand_chase_farm_guide/adventure/adventure_page_repository.dart';
 import 'package:grand_chase_farm_guide/shared/enum/drop_types_enum.dart';
 import 'package:grand_chase_farm_guide/shared/models/adventure_stage_model.dart';
 import 'package:grand_chase_farm_guide/shared/widgets/app_bar_widget/app_bar_widget.dart';
+import 'package:grand_chase_farm_guide/shared/widgets/custom_persistent_header_delegate/custom_persistent_header_delegate.dart';
 import 'package:provider/provider.dart';
 
 class AdventurePage extends StatelessWidget {
@@ -64,8 +65,9 @@ class AdventurePage extends StatelessWidget {
         builder: (providerContext, _) => CustomScrollView(
           slivers: <Widget>[
             SliverPersistentHeader(
-              delegate: SliverAdventureFilterWidgetDelegate(
+              delegate: CustomPersistentHeaderDelegate(
                 child: AdventureFilterWidget(),
+                height: 110,
               ),
               floating: true,
             ),
