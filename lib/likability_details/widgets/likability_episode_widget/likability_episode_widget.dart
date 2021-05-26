@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:grand_chase_farm_guide/core/app_shadows.dart';
 import 'package:grand_chase_farm_guide/likability_details/likability_details_repository.dart';
 import 'package:grand_chase_farm_guide/shared/models/likability_episode_model.dart';
 import 'package:provider/provider.dart';
@@ -27,23 +28,7 @@ class LikabilityEpisodeWidget extends StatelessWidget {
             color: getEpisode(repository).isEpisodeComplete
                 ? Color.fromRGBO(255, 255, 255, 0.8)
                 : Colors.white,
-            boxShadow: [
-              BoxShadow(
-                offset: Offset(0, 24),
-                blurRadius: 38.0,
-                color: Color.fromRGBO(0, 0, 0, 0.14),
-              ),
-              BoxShadow(
-                offset: Offset(0, 9),
-                blurRadius: 46,
-                color: Color.fromRGBO(0, 0, 0, 0.12),
-              ),
-              BoxShadow(
-                offset: Offset(0, 11),
-                blurRadius: 15.0,
-                color: Color.fromRGBO(0, 0, 0, 0.2),
-              ),
-            ],
+            boxShadow: AppShadows.boxShadow04dp,
           ),
           child: Padding(
             padding: const EdgeInsets.only(
