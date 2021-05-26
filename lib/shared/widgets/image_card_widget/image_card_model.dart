@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:grand_chase_farm_guide/shared/widgets/image_card_widget/image_card_widget.dart';
 
 class ImageCardModel {
   final String imageAssetPath;
@@ -8,6 +7,7 @@ class ImageCardModel {
   final String title;
   final BoxFit imageFit;
   final TextStyle textStyle;
+  final Widget nextPage;
 
   ImageCardModel({
     required this.imageAssetPath,
@@ -16,13 +16,6 @@ class ImageCardModel {
     required this.title,
     this.imageFit = BoxFit.cover,
     required this.textStyle,
+    required this.nextPage,
   });
-
-  ImageCardWidget get imageCardWidget => ImageCardWidget(
-        imageAssetPath: imageAssetPath,
-        width: width,
-        height: height,
-        title: title,
-        textStyle: textStyle,
-      );
 }

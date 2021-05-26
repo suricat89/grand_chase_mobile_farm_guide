@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grand_chase_farm_guide/core/app_shadows.dart';
 
 class ImageCardWidget extends StatelessWidget {
   final String imageAssetPath;
@@ -7,6 +8,7 @@ class ImageCardWidget extends StatelessWidget {
   final String title;
   final BoxFit imageFit;
   final TextStyle textStyle;
+  final VoidCallback onTap;
 
   const ImageCardWidget({
     Key? key,
@@ -16,6 +18,7 @@ class ImageCardWidget extends StatelessWidget {
     required this.title,
     this.imageFit = BoxFit.cover,
     required this.textStyle,
+    required this.onTap,
   }) : super(key: key);
 
   @override
@@ -23,13 +26,19 @@ class ImageCardWidget extends StatelessWidget {
     return Container(
       width: width,
       height: height,
+      decoration: BoxDecoration(
+        boxShadow: AppShadows.boxShadow04dp,
+      ),
       child: Stack(
         children: [
-          Image.asset(
-            imageAssetPath,
-            fit: imageFit,
-            width: width,
-            height: height,
+          DecoratedBox(
+            decoration: BoxDecoration(boxShadow: kElevationToShadow[2]),
+            child: Image.asset(
+              imageAssetPath,
+              fit: imageFit,
+              width: width,
+              height: height,
+            ),
           ),
           Container(
             height: height,
@@ -51,6 +60,19 @@ class ImageCardWidget extends StatelessWidget {
                   ],
                 ),
               ),
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              onTap();
+            },
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(Colors.transparent),
+              shadowColor: MaterialStateProperty.all(Colors.transparent),
+            ),
+            child: SizedBox(
+              width: width,
+              height: height,
             ),
           )
         ],
