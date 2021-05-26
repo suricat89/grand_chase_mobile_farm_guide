@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grand_chase_farm_guide/core/app_colors.dart';
+import 'package:grand_chase_farm_guide/home/home_page.dart';
 import 'package:grand_chase_farm_guide/login/login_form_widget/login_form_controller.dart';
 
 class LoginFormWidget extends StatefulWidget {
@@ -106,7 +107,10 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
               SizedBox(width: 20),
               Expanded(
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => HomePage()));
+                  },
                   child: Text(
                     "LOGIN",
                     style: GoogleFonts.roboto(
