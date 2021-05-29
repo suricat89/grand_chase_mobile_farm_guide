@@ -42,7 +42,10 @@ class _LikabilityDetailsPageState extends State<LikabilityDetailsPage> {
     }
 
     return Scaffold(
-      appBar: AppBarWidget(title: "Afinidade"),
+      appBar: AppBarWidget(
+        title: "Afinidade",
+        context: context,
+      ),
       body: ChangeNotifierProvider<LikabilityDetailsRepository>(
           create: (_) => LikabilityDetailsRepository(),
           builder: (providerContext, child) {

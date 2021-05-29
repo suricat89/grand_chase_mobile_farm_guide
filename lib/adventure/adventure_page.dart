@@ -59,7 +59,10 @@ class AdventurePage extends StatelessWidget {
     AdventureRepository repository = AdventureRepository();
 
     return Scaffold(
-      appBar: AppBarWidget(title: "Aventura"),
+      appBar: AppBarWidget(
+        title: "Aventura",
+        context: context,
+      ),
       body: ChangeNotifierProvider<AdventurePageController>(
         create: (_) => AdventurePageController(),
         builder: (providerContext, _) => CustomScrollView(
@@ -81,7 +84,7 @@ class AdventurePage extends StatelessWidget {
                       style: GoogleFonts.roboto(
                         fontSize: 24,
                         fontWeight: FontWeight.w400,
-                        color: Color.fromRGBO(0, 0, 0, 0.87),
+                        color: Theme.of(context).textTheme.bodyText1!.color,
                       ),
                     ),
                     Divider(),

@@ -26,8 +26,8 @@ class LikabilityEpisodeWidget extends StatelessWidget {
           width: double.maxFinite,
           decoration: BoxDecoration(
             color: getEpisode(repository).isEpisodeComplete
-                ? Color.fromRGBO(255, 255, 255, 0.8)
-                : Colors.white,
+                ? Theme.of(context).cardColor.withOpacity(0.6)
+                : Theme.of(context).cardColor,
             boxShadow: AppShadows.boxShadow04dp,
           ),
           child: Padding(
@@ -45,7 +45,7 @@ class LikabilityEpisodeWidget extends StatelessWidget {
                   style: GoogleFonts.roboto(
                     fontWeight: FontWeight.w500,
                     fontSize: 16,
-                    color: Colors.black87,
+                    color: Theme.of(context).textTheme.headline6!.color,
                   ),
                 ),
                 Column(
@@ -84,7 +84,10 @@ class LikabilityEpisodeWidget extends StatelessWidget {
                                       style: GoogleFonts.roboto(
                                         fontWeight: FontWeight.w400,
                                         fontSize: 16,
-                                        color: Color.fromRGBO(0, 0, 0, 0.6),
+                                        color: Theme.of(context)
+                                            .textTheme
+                                            .bodyText1!
+                                            .color,
                                       ),
                                     ),
                                   ),

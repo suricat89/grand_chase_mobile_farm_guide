@@ -22,7 +22,7 @@ class LikabilityDetailsHeaderWidget extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         boxShadow: AppShadows.boxShadow02dp,
-        color: Colors.white,
+        color: Theme.of(context).cardColor,
       ),
       child: Row(
         children: [

@@ -18,7 +18,7 @@ class AdventureStageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).cardColor,
         boxShadow: AppShadows.boxShadow04dp,
         borderRadius: BorderRadius.circular(4),
       ),
@@ -34,7 +34,7 @@ class AdventureStageWidget extends StatelessWidget {
             style: GoogleFonts.roboto(
               fontWeight: FontWeight.w700,
               fontSize: 16,
-              color: Colors.black87,
+              color: Theme.of(context).textTheme.bodyText1!.color,
             ),
           ),
           Image.asset(

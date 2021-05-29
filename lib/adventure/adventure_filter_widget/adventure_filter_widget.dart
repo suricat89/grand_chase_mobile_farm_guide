@@ -42,193 +42,201 @@ class AdventureFilterWidget extends StatelessWidget {
           ),
           color: Colors.white,
         ),
-        child: Stack(
-          children: [
-            Align(
-              alignment: Alignment.topRight,
-              child: IconButton(
-                icon: Icon(Icons.settings_backup_restore),
-                tooltip: "Redefinir filtros",
-                onPressed: () {
-                  controller.evostoneFilterSelected = DropTypes.none;
-                  controller.sCardFilterSelected = DropTypes.none;
-                  controller.bovFilterSelected = false;
-                },
-                color: Colors.black87,
+        child: Material(
+          color: Theme.of(context).cardColor,
+          child: Stack(
+            children: [
+              Align(
+                alignment: Alignment.topRight,
+                child: IconButton(
+                  icon: Icon(Icons.settings_backup_restore),
+                  tooltip: "Redefinir filtros",
+                  onPressed: () {
+                    controller.evostoneFilterSelected = DropTypes.none;
+                    controller.sCardFilterSelected = DropTypes.none;
+                    controller.bovFilterSelected = false;
+                  },
+                  splashRadius: 24,
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(15),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Filtros",
-                        style: TextStyles.subtitle1,
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 10),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          FilterButtonWidget(
-                            text: Text("Pedra de\nEvolução",
-                                style: TextStyles.body2),
-                            icon: Icon(Icons.filter_list),
-                            isFilterApplied:
-                                controller.evostoneFilterSelected !=
-                                    DropTypes.none,
-                            onTap: () {
-                              controller.evostoneFilterToggle();
-                              _showModalBottomSheet(
-                                context: context,
-                                title: "Pedra de Evolução",
-                                items: [
-                                  AdventureBottomSheetItemModel(
-                                    title: "Assalto",
-                                    dropType: DropTypes.assaultSoulstone,
-                                    selected:
-                                        controller.evostoneFilterSelected ==
-                                            DropTypes.assaultSoulstone,
-                                  ),
-                                  AdventureBottomSheetItemModel(
-                                    title: "Atirador",
-                                    dropType: DropTypes.rangerSoulstone,
-                                    selected:
-                                        controller.evostoneFilterSelected ==
-                                            DropTypes.rangerSoulstone,
-                                  ),
-                                  AdventureBottomSheetItemModel(
-                                    title: "Guardião",
-                                    dropType: DropTypes.tankSoulstone,
-                                    selected:
-                                        controller.evostoneFilterSelected ==
-                                            DropTypes.tankSoulstone,
-                                  ),
-                                  AdventureBottomSheetItemModel(
-                                    title: "Mago",
-                                    dropType: DropTypes.mageSoulstone,
-                                    selected:
-                                        controller.evostoneFilterSelected ==
-                                            DropTypes.mageSoulstone,
-                                  ),
-                                  AdventureBottomSheetItemModel(
-                                    title: "Suporte",
-                                    dropType: DropTypes.healerSoulstone,
-                                    selected:
-                                        controller.evostoneFilterSelected ==
-                                            DropTypes.healerSoulstone,
-                                  ),
-                                ],
-                                onFilterChanged: (dropType) {
-                                  if (controller.evostoneFilterSelected ==
-                                      dropType) {
-                                    controller.evostoneFilterSelected =
-                                        DropTypes.none;
-                                  } else {
-                                    controller.evostoneFilterSelected =
-                                        dropType;
-                                  }
-                                },
-                              );
-                            },
-                          ),
-                          FilterButtonWidget(
-                            text: Text(
-                              "Carta S",
-                              style: TextStyles.body2,
-                              textAlign: TextAlign.center,
-                            ),
-                            icon: Icon(Icons.filter_list),
-                            isFilterApplied: controller.sCardFilterSelected !=
-                                DropTypes.none,
-                            onTap: () {
-                              controller.sCardFilterToggle();
-                              _showModalBottomSheet(
-                                context: context,
-                                title: "Carta rank S",
-                                items: [
-                                  AdventureBottomSheetItemModel(
-                                    title: "Assalto",
-                                    dropType: DropTypes.assaultSCard,
-                                    selected: controller.sCardFilterSelected ==
-                                        DropTypes.assaultSCard,
-                                  ),
-                                  AdventureBottomSheetItemModel(
-                                    title: "Atirador",
-                                    dropType: DropTypes.rangerSCard,
-                                    selected: controller.sCardFilterSelected ==
-                                        DropTypes.rangerSCard,
-                                  ),
-                                  AdventureBottomSheetItemModel(
-                                    title: "Guardião",
-                                    dropType: DropTypes.tankSCard,
-                                    selected: controller.sCardFilterSelected ==
-                                        DropTypes.tankSCard,
-                                  ),
-                                  AdventureBottomSheetItemModel(
-                                    title: "Mago",
-                                    dropType: DropTypes.mageSCard,
-                                    selected: controller.sCardFilterSelected ==
-                                        DropTypes.mageSCard,
-                                  ),
-                                  AdventureBottomSheetItemModel(
-                                    title: "Suporte",
-                                    dropType: DropTypes.healerSCard,
-                                    selected: controller.sCardFilterSelected ==
-                                        DropTypes.healerSCard,
-                                  ),
-                                ],
-                                onFilterChanged: (dropType) {
-                                  if (controller.sCardFilterSelected ==
-                                      dropType) {
-                                    controller.sCardFilterSelected =
-                                        DropTypes.none;
-                                  } else {
-                                    controller.sCardFilterSelected = dropType;
-                                  }
-                                },
-                              );
-                            },
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              controller.bovFilterToggle();
-                            },
-                            child: Row(
-                              children: [
-                                Checkbox(
-                                  value: controller.bovFilterSelected,
-                                  onChanged: (newValue) {
-                                    controller.bovFilterSelected = newValue!;
+              Padding(
+                padding: const EdgeInsets.all(15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Filtros",
+                          style: TextStyles.subtitle1,
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            FilterButtonWidget(
+                              text: Text("Pedra de\nEvolução",
+                                  style: TextStyles.body2),
+                              icon: Icon(Icons.filter_list),
+                              isFilterApplied:
+                                  controller.evostoneFilterSelected !=
+                                      DropTypes.none,
+                              onTap: () {
+                                controller.evostoneFilterToggle();
+                                _showModalBottomSheet(
+                                  context: context,
+                                  title: "Pedra de Evolução",
+                                  items: [
+                                    AdventureBottomSheetItemModel(
+                                      title: "Assalto",
+                                      dropType: DropTypes.assaultSoulstone,
+                                      selected:
+                                          controller.evostoneFilterSelected ==
+                                              DropTypes.assaultSoulstone,
+                                    ),
+                                    AdventureBottomSheetItemModel(
+                                      title: "Atirador",
+                                      dropType: DropTypes.rangerSoulstone,
+                                      selected:
+                                          controller.evostoneFilterSelected ==
+                                              DropTypes.rangerSoulstone,
+                                    ),
+                                    AdventureBottomSheetItemModel(
+                                      title: "Guardião",
+                                      dropType: DropTypes.tankSoulstone,
+                                      selected:
+                                          controller.evostoneFilterSelected ==
+                                              DropTypes.tankSoulstone,
+                                    ),
+                                    AdventureBottomSheetItemModel(
+                                      title: "Mago",
+                                      dropType: DropTypes.mageSoulstone,
+                                      selected:
+                                          controller.evostoneFilterSelected ==
+                                              DropTypes.mageSoulstone,
+                                    ),
+                                    AdventureBottomSheetItemModel(
+                                      title: "Suporte",
+                                      dropType: DropTypes.healerSoulstone,
+                                      selected:
+                                          controller.evostoneFilterSelected ==
+                                              DropTypes.healerSoulstone,
+                                    ),
+                                  ],
+                                  onFilterChanged: (dropType) {
+                                    if (controller.evostoneFilterSelected ==
+                                        dropType) {
+                                      controller.evostoneFilterSelected =
+                                          DropTypes.none;
+                                    } else {
+                                      controller.evostoneFilterSelected =
+                                          dropType;
+                                    }
                                   },
-                                  visualDensity: VisualDensity(
-                                    horizontal: VisualDensity.minimumDensity,
-                                  ),
-                                ),
-                                Text(
-                                  "Benção de\nValor",
-                                  style: TextStyles.body2,
-                                )
-                              ],
+                                );
+                              },
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
+                            FilterButtonWidget(
+                              text: Text(
+                                "Carta S",
+                                style: TextStyles.body2,
+                                textAlign: TextAlign.center,
+                              ),
+                              icon: Icon(Icons.filter_list),
+                              isFilterApplied: controller.sCardFilterSelected !=
+                                  DropTypes.none,
+                              onTap: () {
+                                controller.sCardFilterToggle();
+                                _showModalBottomSheet(
+                                  context: context,
+                                  title: "Carta rank S",
+                                  items: [
+                                    AdventureBottomSheetItemModel(
+                                      title: "Assalto",
+                                      dropType: DropTypes.assaultSCard,
+                                      selected:
+                                          controller.sCardFilterSelected ==
+                                              DropTypes.assaultSCard,
+                                    ),
+                                    AdventureBottomSheetItemModel(
+                                      title: "Atirador",
+                                      dropType: DropTypes.rangerSCard,
+                                      selected:
+                                          controller.sCardFilterSelected ==
+                                              DropTypes.rangerSCard,
+                                    ),
+                                    AdventureBottomSheetItemModel(
+                                      title: "Guardião",
+                                      dropType: DropTypes.tankSCard,
+                                      selected:
+                                          controller.sCardFilterSelected ==
+                                              DropTypes.tankSCard,
+                                    ),
+                                    AdventureBottomSheetItemModel(
+                                      title: "Mago",
+                                      dropType: DropTypes.mageSCard,
+                                      selected:
+                                          controller.sCardFilterSelected ==
+                                              DropTypes.mageSCard,
+                                    ),
+                                    AdventureBottomSheetItemModel(
+                                      title: "Suporte",
+                                      dropType: DropTypes.healerSCard,
+                                      selected:
+                                          controller.sCardFilterSelected ==
+                                              DropTypes.healerSCard,
+                                    ),
+                                  ],
+                                  onFilterChanged: (dropType) {
+                                    if (controller.sCardFilterSelected ==
+                                        dropType) {
+                                      controller.sCardFilterSelected =
+                                          DropTypes.none;
+                                    } else {
+                                      controller.sCardFilterSelected = dropType;
+                                    }
+                                  },
+                                );
+                              },
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                controller.bovFilterToggle();
+                              },
+                              child: Row(
+                                children: [
+                                  Checkbox(
+                                    value: controller.bovFilterSelected,
+                                    onChanged: (newValue) {
+                                      controller.bovFilterSelected = newValue!;
+                                    },
+                                    visualDensity: VisualDensity(
+                                      horizontal: VisualDensity.minimumDensity,
+                                    ),
+                                  ),
+                                  Text(
+                                    "Benção de\nValor",
+                                    style: TextStyles.body2,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

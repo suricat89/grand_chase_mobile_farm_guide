@@ -22,15 +22,11 @@ class FilterButtonWidget extends StatelessWidget {
       style: ButtonStyle(
         backgroundColor: isFilterApplied
             ? MaterialStateProperty.all(
-                Colors.deepPurple[100],
-              )
-            : MaterialStateProperty.all(
-                Color.fromRGBO(33, 33, 33, 0.08),
-              ),
+                Theme.of(context).buttonColor.withOpacity(0.6))
+            : MaterialStateProperty.all(Theme.of(context).buttonColor),
         elevation: MaterialStateProperty.all(0),
         foregroundColor: MaterialStateProperty.all(
-          Color.fromRGBO(0, 0, 0, 0.87),
-        ),
+            Theme.of(context).textTheme.subtitle1!.color),
         shape: MaterialStateProperty.all(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.all(

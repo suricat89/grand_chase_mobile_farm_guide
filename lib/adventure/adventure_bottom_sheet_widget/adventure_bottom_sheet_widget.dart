@@ -40,7 +40,7 @@ class _AdventureBottomSheetWidgetState
     return SafeArea(
       bottom: true,
       child: Container(
-        color: Colors.white,
+        color: Theme.of(context).cardColor,
         height: 370,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,7 +58,7 @@ class _AdventureBottomSheetWidgetState
                       style: GoogleFonts.roboto(
                         fontSize: 20,
                         fontWeight: FontWeight.w500,
-                        color: Colors.black87,
+                        color: Theme.of(context).textTheme.bodyText1!.color,
                       ),
                       textAlign: TextAlign.left,
                     ),
@@ -83,7 +83,10 @@ class _AdventureBottomSheetWidgetState
                   DropTypesUtil.getDropImageAsset(item.dropType),
                   width: 40,
                 ),
-                selectedTileColor: Color.fromRGBO(98, 0, 238, 0.08),
+                selectedTileColor: Theme.of(context)
+                    .appBarTheme
+                    .backgroundColor!
+                    .withOpacity(0.8),
                 selected: selectedItem == item.dropType,
                 onTap: () {
                   setState(() {

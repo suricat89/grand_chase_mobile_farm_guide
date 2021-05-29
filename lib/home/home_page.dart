@@ -35,7 +35,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(title: "Página Inicial"),
+      appBar: AppBarWidget(
+        title: "Página Inicial",
+        context: context,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: ListView.separated(

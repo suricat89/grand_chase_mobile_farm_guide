@@ -20,7 +20,10 @@ class LikabilityListPage extends StatelessWidget {
         .truncate();
 
     return Scaffold(
-      appBar: AppBarWidget(title: "Afinidade"),
+      appBar: AppBarWidget(
+        title: "Afinidade",
+        context: context,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(pagePadding),
         child: GridView.count(
