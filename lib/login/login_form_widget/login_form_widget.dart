@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grand_chase_farm_guide/core/app_colors.dart';
 import 'package:grand_chase_farm_guide/home/home_page.dart';
+import 'package:grand_chase_farm_guide/login/login_form_widget/create_account_widget/create_account_dialog.dart';
 import 'package:grand_chase_farm_guide/login/login_form_widget/login_form_controller.dart';
 
 class LoginFormWidget extends StatefulWidget {
@@ -85,7 +86,6 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
               children: [
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {},
                     child: Text(
                       "CRIAR CONTA",
                       style: GoogleFonts.roboto(
@@ -103,6 +103,12 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                         BorderSide(color: AppColors.divider),
                       ),
                     ),
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) => CreateAccountDialog(),
+                      );
+                    },
                   ),
                 ),
                 SizedBox(width: 20),
