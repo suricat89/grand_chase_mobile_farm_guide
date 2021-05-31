@@ -19,7 +19,7 @@ class ThemeNotifier with ChangeNotifier {
 
   final ThemeData lightTheme = ThemeData(
     primarySwatch: Colors.grey,
-    primaryColor: Colors.white,
+    primaryColor: Color(0xFF6200EE),
     brightness: Brightness.light,
     backgroundColor: const Color(0xFFE5E5E5),
     accentColor: Colors.black,
