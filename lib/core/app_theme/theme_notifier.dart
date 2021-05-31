@@ -34,6 +34,7 @@ class ThemeNotifier with ChangeNotifier {
     sliderTheme: SliderThemeData(
       thumbColor: Color(0xFF6200EE),
       activeTrackColor: Color(0xFF6200EE).withOpacity(0.7),
+      valueIndicatorColor: Colors.grey[300],
     ),
   );
 
