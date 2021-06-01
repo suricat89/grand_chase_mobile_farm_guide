@@ -8,6 +8,7 @@ import 'package:grand_chase_farm_guide/likability_details/widgets/likability_epi
 import 'package:grand_chase_farm_guide/shared/models/likability_character_model.dart';
 import 'package:grand_chase_farm_guide/shared/util/character_util.dart';
 import 'package:grand_chase_farm_guide/shared/widgets/app_bar_widget/app_bar_widget.dart';
+import 'package:grand_chase_farm_guide/shared/widgets/app_drawer_widget/app_drawer_widget.dart';
 import 'package:grand_chase_farm_guide/shared/widgets/custom_persistent_header_delegate/custom_persistent_header_delegate.dart';
 import 'package:provider/provider.dart';
 
@@ -42,10 +43,8 @@ class _LikabilityDetailsPageState extends State<LikabilityDetailsPage> {
     }
 
     return Scaffold(
-      appBar: AppBarWidget(
-        title: "Afinidade",
-        context: context,
-      ),
+      appBar: AppBarWidget(title: "Afinidade"),
+      drawer: AppDrawerWidget(),
       body: ChangeNotifierProvider<LikabilityDetailsRepository>(
           create: (_) => LikabilityDetailsRepository(),
           builder: (providerContext, child) {

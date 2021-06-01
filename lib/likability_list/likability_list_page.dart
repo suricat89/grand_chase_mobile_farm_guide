@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grand_chase_farm_guide/likability_list/likability_list_repository.dart';
 import 'package:grand_chase_farm_guide/shared/widgets/app_bar_widget/app_bar_widget.dart';
+import 'package:grand_chase_farm_guide/shared/widgets/app_drawer_widget/app_drawer_widget.dart';
 import 'package:grand_chase_farm_guide/shared/widgets/image_card_widget/image_card_model.dart';
 import 'package:grand_chase_farm_guide/shared/widgets/image_card_widget/image_card_widget.dart';
 
@@ -20,10 +21,8 @@ class LikabilityListPage extends StatelessWidget {
         .truncate();
 
     return Scaffold(
-      appBar: AppBarWidget(
-        title: "Afinidade",
-        context: context,
-      ),
+      appBar: AppBarWidget(title: "Afinidade"),
+      drawer: AppDrawerWidget(),
       body: Padding(
         padding: const EdgeInsets.all(pagePadding),
         child: GridView.count(

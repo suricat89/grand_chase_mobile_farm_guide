@@ -9,7 +9,6 @@ class PasswordCriteriaModel {
       {required this.criteria, required this.description, this.isValid: false});
 
   bool evaluateCriteria(String password) {
-    print("criteria: $criteria / password: '$password'");
     switch (criteria) {
       case PasswordCriteria.Size:
         return password.length >= 8;

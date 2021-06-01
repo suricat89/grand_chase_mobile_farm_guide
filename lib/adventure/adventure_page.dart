@@ -7,6 +7,7 @@ import 'package:grand_chase_farm_guide/adventure/adventure_page_repository.dart'
 import 'package:grand_chase_farm_guide/shared/enum/drop_types_enum.dart';
 import 'package:grand_chase_farm_guide/shared/models/adventure_stage_model.dart';
 import 'package:grand_chase_farm_guide/shared/widgets/app_bar_widget/app_bar_widget.dart';
+import 'package:grand_chase_farm_guide/shared/widgets/app_drawer_widget/app_drawer_widget.dart';
 import 'package:grand_chase_farm_guide/shared/widgets/custom_persistent_header_delegate/custom_persistent_header_delegate.dart';
 import 'package:provider/provider.dart';
 
@@ -59,10 +60,8 @@ class AdventurePage extends StatelessWidget {
     AdventureRepository repository = AdventureRepository();
 
     return Scaffold(
-      appBar: AppBarWidget(
-        title: "Aventura",
-        context: context,
-      ),
+      appBar: AppBarWidget(title: "Aventura"),
+      drawer: AppDrawerWidget(),
       body: ChangeNotifierProvider<AdventurePageController>(
         create: (_) => AdventurePageController(),
         builder: (providerContext, _) => CustomScrollView(
