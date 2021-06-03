@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:grand_chase_farm_guide/core/app_colors.dart';
 import 'package:grand_chase_farm_guide/core/app_images.dart';
 import 'package:grand_chase_farm_guide/core/text_styles.dart';
+import 'package:grand_chase_farm_guide/login/social_media_login_widget/social_media_login_handler/social_media_login_handler.dart';
 import 'package:grand_chase_farm_guide/login/social_media_login_widget/social_media_login_model.dart';
 
 enum SocialMedia { facebook, google }
 
 class SocialMediaLoginWidget extends StatelessWidget {
   final SocialMedia socialMedia;
+  final VoidCallback onLoginSuccess;
   const SocialMediaLoginWidget({
     Key? key,
     required this.socialMedia,
+    required this.onLoginSuccess,
   }) : super(key: key);
 
   SocialMediaLoginModel getSocialMediaLoginModel() {
@@ -37,7 +40,15 @@ class SocialMediaLoginWidget extends StatelessWidget {
     SocialMediaLoginModel model = getSocialMediaLoginModel();
 
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        SocialMediaLoginHandler handler =
+            SocialMediaLoginHandler.getHandler(socialMedia);
+        handler.login().then((success) {
+          if (success) {
+            onLoginSuccess();
+          }
+        });
+      },
       style: ButtonStyle(
         padding: MaterialStateProperty.all(EdgeInsets.all(15)),
         backgroundColor: MaterialStateProperty.all(model.backgroundColor),

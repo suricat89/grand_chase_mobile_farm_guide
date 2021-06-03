@@ -52,6 +52,9 @@ class _LoginPageState extends State<LoginPage> {
                     Expanded(
                       child: SocialMediaLoginWidget(
                         socialMedia: SocialMedia.facebook,
+                        onLoginSuccess: () {
+                          Navigator.pushReplacementNamed(context, '/home');
+                        },
                       ),
                     ),
                   ],
@@ -62,6 +65,9 @@ class _LoginPageState extends State<LoginPage> {
                     Expanded(
                       child: SocialMediaLoginWidget(
                         socialMedia: SocialMedia.google,
+                        onLoginSuccess: () {
+                          Navigator.pushReplacementNamed(context, '/home');
+                        },
                       ),
                     ),
                   ],
