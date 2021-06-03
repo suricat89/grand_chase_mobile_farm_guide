@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grand_chase_farm_guide/adventure/adventure_page.dart';
+import 'package:grand_chase_farm_guide/core/app_config/app_config_notifier.dart';
 import 'package:grand_chase_farm_guide/likability_details/likability_details_args.dart';
 import 'package:grand_chase_farm_guide/likability_list/likability_list_repository.dart';
+import 'package:provider/provider.dart';
 
 class AppDrawerWidget extends Drawer {
   const AppDrawerWidget({Key? key}) : super(key: key);
@@ -76,12 +78,16 @@ class AppDrawerWidget extends Drawer {
                   ));
             },
           ),
-          ListTile(
-            title: Text("Sair"),
-            onTap: () {
-              Navigator.pushNamedAndRemoveUntil(
-                  context, '/login', (route) => false);
-            },
+          Consumer<AppConfigNotifier>(
+            builder: (_, appConfig, __) => ListTile(
+              title: Text("Sair"),
+              onTap: () {
+                appConfig.setLightTheme();
+                appConfig.clearLoginData();
+                Navigator.pushNamedAndRemoveUntil(
+                    context, '/login', (route) => false);
+              },
+            ),
           ),
         ],
       ),

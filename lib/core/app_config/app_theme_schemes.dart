@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ThemeNotifier with ChangeNotifier {
-  final ThemeData darkTheme = ThemeData(
+class AppThemeSchemes {
+  static final ThemeData darkTheme = ThemeData(
     primarySwatch: Colors.grey,
     primaryColor: Colors.black,
     brightness: Brightness.dark,
@@ -17,7 +17,7 @@ class ThemeNotifier with ChangeNotifier {
     ),
   );
 
-  final ThemeData lightTheme = ThemeData(
+  static final ThemeData lightTheme = ThemeData(
     primarySwatch: Colors.grey,
     primaryColor: Color(0xFF6200EE),
     brightness: Brightness.light,
@@ -37,30 +37,4 @@ class ThemeNotifier with ChangeNotifier {
       valueIndicatorColor: Colors.grey[300],
     ),
   );
-
-  late ThemeData _selectedTheme;
-  ThemeData get selectedTheme => _selectedTheme;
-
-  ThemeNotifier() {
-    _selectedTheme = lightTheme;
-    notifyListeners();
-  }
-
-  void setDarkMode() {
-    _selectedTheme = darkTheme;
-    notifyListeners();
-  }
-
-  void setLightMode() {
-    _selectedTheme = lightTheme;
-    notifyListeners();
-  }
-
-  void toggleMode() {
-    if (selectedTheme == lightTheme) {
-      setDarkMode();
-    } else {
-      setLightMode();
-    }
-  }
 }

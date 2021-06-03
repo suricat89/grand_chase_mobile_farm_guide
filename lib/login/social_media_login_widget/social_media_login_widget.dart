@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:grand_chase_farm_guide/core/app_colors.dart';
+import 'package:grand_chase_farm_guide/core/app_config/app_config_notifier.dart';
 import 'package:grand_chase_farm_guide/core/app_images.dart';
 import 'package:grand_chase_farm_guide/core/text_styles.dart';
 import 'package:grand_chase_farm_guide/login/social_media_login_widget/social_media_login_handler/social_media_login_handler.dart';
 import 'package:grand_chase_farm_guide/login/social_media_login_widget/social_media_login_model.dart';
 import 'package:grand_chase_farm_guide/shared/enum/social_media_enum.dart';
+import 'package:provider/provider.dart';
 
 class SocialMediaLoginWidget extends StatelessWidget {
   final SocialMedia socialMedia;
@@ -38,35 +40,36 @@ class SocialMediaLoginWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     SocialMediaLoginModel model = getSocialMediaLoginModel();
 
-    return ElevatedButton(
-      onPressed: () {
-        SocialMediaLoginHandler handler =
-            SocialMediaLoginHandler.getHandler(socialMedia);
-        handler.login().then((success) {
-          if (success) {
+    return Consumer<AppConfigNotifier>(
+      builder: (_, appConfig, __) => ElevatedButton(
+        onPressed: () {
+          SocialMediaLoginHandler handler =
+              SocialMediaLoginHandler.getHandler(socialMedia);
+          handler.login().then((loginData) {
+            appConfig.loginData = loginData;
             onLoginSuccess();
-          }
-        });
-      },
-      style: ButtonStyle(
-        padding: MaterialStateProperty.all(EdgeInsets.all(15)),
-        backgroundColor: MaterialStateProperty.all(model.backgroundColor),
-        overlayColor: MaterialStateProperty.all(model.overlayColor),
-        elevation: MaterialStateProperty.all(0),
-      ),
-      child: Row(
-        children: [
-          Image.asset(
-            model.imageAssetPath,
-            height: 48,
-            width: 48,
-          ),
-          SizedBox(width: 20),
-          Text(
-            model.text,
-            style: TextStyles.loginPageSocialMediaDescription,
-          ),
-        ],
+          });
+        },
+        style: ButtonStyle(
+          padding: MaterialStateProperty.all(EdgeInsets.all(15)),
+          backgroundColor: MaterialStateProperty.all(model.backgroundColor),
+          overlayColor: MaterialStateProperty.all(model.overlayColor),
+          elevation: MaterialStateProperty.all(0),
+        ),
+        child: Row(
+          children: [
+            Image.asset(
+              model.imageAssetPath,
+              height: 48,
+              width: 48,
+            ),
+            SizedBox(width: 20),
+            Text(
+              model.text,
+              style: TextStyles.loginPageSocialMediaDescription,
+            ),
+          ],
+        ),
       ),
     );
   }
