@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:grand_chase_farm_guide/core/app_images.dart';
 import 'package:grand_chase_farm_guide/core/text_styles.dart';
-import 'package:grand_chase_farm_guide/likability_details/likability_details_page.dart';
+import 'package:grand_chase_farm_guide/likability_details/likability_details_args.dart';
 import 'package:grand_chase_farm_guide/shared/util/character_util.dart';
 import 'package:grand_chase_farm_guide/shared/widgets/image_card_widget/image_card_model.dart';
 
@@ -17,9 +16,8 @@ class LikabilityListRepository {
         height: cardSize,
         textStyle: TextStyles.likabilityListCards,
         imageFit: BoxFit.cover,
-        nextPage: LikabilityDetailsPage(
-          selectedCharacterName: title,
-        ),
+        nextPageRoute: '/likability/details',
+        nextPageRouteArgs: LikabilityDetailsArgs(selectedCharacterName: title),
       );
 
   static final List<ImageCardModel> likabilityCharacters = [

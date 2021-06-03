@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grand_chase_farm_guide/adventure/adventure_page.dart';
-import 'package:grand_chase_farm_guide/likability_details/likability_details_page.dart';
+import 'package:grand_chase_farm_guide/likability_details/likability_details_args.dart';
 import 'package:grand_chase_farm_guide/likability_list/likability_list_repository.dart';
 
 class AppDrawerWidget extends Drawer {
@@ -53,12 +53,11 @@ class AppDrawerWidget extends Drawer {
                       fit: character.imageFit,
                     ),
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => LikabilityDetailsPage(
-                              selectedCharacterName: character.title),
-                        ),
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                        '/likability/details',
+                        (route) => route.isFirst,
+                        arguments: LikabilityDetailsArgs(
+                            selectedCharacterName: character.title),
                       );
                     },
                   ),
@@ -79,7 +78,10 @@ class AppDrawerWidget extends Drawer {
           ),
           ListTile(
             title: Text("Sair"),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamedAndRemoveUntil(
+                  context, '/login', (route) => false);
+            },
           ),
         ],
       ),

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grand_chase_farm_guide/core/app_colors.dart';
-import 'package:grand_chase_farm_guide/home/home_page.dart';
-import 'package:grand_chase_farm_guide/login/login_form_widget/create_account_widget/create_account_dialog.dart';
+import 'package:grand_chase_farm_guide/login/create_account_widget/create_account_dialog.dart';
 import 'package:grand_chase_farm_guide/login/login_form_widget/login_form_controller.dart';
 
 class LoginFormWidget extends StatefulWidget {
@@ -115,8 +114,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) => HomePage()));
+                      Navigator.pushReplacementNamed(context, '/home');
                     },
                     child: Text(
                       "LOGIN",

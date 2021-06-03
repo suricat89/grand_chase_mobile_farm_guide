@@ -3,8 +3,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:grand_chase_farm_guide/core/app_images.dart';
 import 'package:grand_chase_farm_guide/core/text_styles.dart';
-import 'package:grand_chase_farm_guide/login/login_page.dart';
-import 'package:grand_chase_farm_guide/shared/widgets/fade_route/fade_route.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -12,12 +10,9 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(Duration(seconds: 2)).then(
-      (value) => Navigator.pushReplacement(
-        context,
-        FadeRoute(
-          page: LoginPage(),
-        ),
-      ),
+      (value) {
+        Navigator.pushReplacementNamed(context, '/login');
+      },
     );
 
     return Stack(

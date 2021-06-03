@@ -7,7 +7,8 @@ class ImageCardModel {
   final String title;
   final BoxFit imageFit;
   final TextStyle textStyle;
-  final Widget nextPage;
+  final String nextPageRoute;
+  final dynamic nextPageRouteArgs;
 
   ImageCardModel({
     required this.imageAssetPath,
@@ -16,6 +17,7 @@ class ImageCardModel {
     required this.title,
     this.imageFit = BoxFit.cover,
     required this.textStyle,
-    required this.nextPage,
+    required this.nextPageRoute,
+    this.nextPageRouteArgs,
   });
 }

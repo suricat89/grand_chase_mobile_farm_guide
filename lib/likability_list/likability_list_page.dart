@@ -39,8 +39,8 @@ class LikabilityListPage extends StatelessWidget {
                     title: e.title,
                     textStyle: e.textStyle,
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => e.nextPage));
+                      Navigator.pushNamed(context, e.nextPageRoute,
+                          arguments: e.nextPageRouteArgs);
                     },
                   ),
                 ),

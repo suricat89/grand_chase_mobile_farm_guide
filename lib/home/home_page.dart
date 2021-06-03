@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:grand_chase_farm_guide/adventure/adventure_page.dart';
 import 'package:grand_chase_farm_guide/core/app_images.dart';
-import 'package:grand_chase_farm_guide/core/app_theme/theme_notifier.dart';
 import 'package:grand_chase_farm_guide/core/text_styles.dart';
-import 'package:grand_chase_farm_guide/likability_list/likability_list_page.dart';
-import 'package:grand_chase_farm_guide/shared/widgets/app_bar_widget/app_bar_button_widget.dart';
 import 'package:grand_chase_farm_guide/shared/widgets/app_drawer_widget/app_drawer_widget.dart';
 import 'package:grand_chase_farm_guide/shared/widgets/image_card_widget/image_card_model.dart';
 import 'package:grand_chase_farm_guide/shared/widgets/app_bar_widget/app_bar_widget.dart';
 import 'package:grand_chase_farm_guide/shared/widgets/image_card_widget/image_card_widget.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -21,19 +16,21 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List<ImageCardModel> homePageItems = [
     ImageCardModel(
-        imageAssetPath: AppImages.cardLikability,
-        width: double.maxFinite,
-        height: 196,
-        title: "Missões de afinidade",
-        textStyle: TextStyles.homePageCards,
-        nextPage: LikabilityListPage()),
+      imageAssetPath: AppImages.cardLikability,
+      width: double.maxFinite,
+      height: 196,
+      title: "Missões de afinidade",
+      textStyle: TextStyles.homePageCards,
+      nextPageRoute: '/likability/list',
+    ),
     ImageCardModel(
-        imageAssetPath: AppImages.cardAdventure,
-        width: double.maxFinite,
-        height: 196,
-        title: "Missões de aventura",
-        textStyle: TextStyles.homePageCards,
-        nextPage: AdventurePage()),
+      imageAssetPath: AppImages.cardAdventure,
+      width: double.maxFinite,
+      height: 196,
+      title: "Missões de aventura",
+      textStyle: TextStyles.homePageCards,
+      nextPageRoute: '/adventure',
+    ),
   ];
 
   @override
@@ -51,10 +48,7 @@ class _HomePageState extends State<HomePage> {
             title: homePageItems[index].title,
             textStyle: homePageItems[index].textStyle,
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => homePageItems[index].nextPage));
+              Navigator.pushNamed(context, homePageItems[index].nextPageRoute);
             },
           ),
           separatorBuilder: (context, index) => SizedBox(height: 15),
