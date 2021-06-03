@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grand_chase_farm_guide/core/app_shadows.dart';
-import 'package:grand_chase_farm_guide/shared/util/character_util.dart';
 
 class LikabilityDetailsHeaderWidget extends StatelessWidget {
   final VoidCallback onBackButtonTap;

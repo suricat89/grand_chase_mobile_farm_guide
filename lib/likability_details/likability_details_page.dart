@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:grand_chase_farm_guide/core/app_images.dart';
-import 'package:grand_chase_farm_guide/core/app_shadows.dart';
 import 'package:grand_chase_farm_guide/likability_details/likability_details_repository.dart';
 import 'package:grand_chase_farm_guide/likability_details/widgets/likability_details_header_widget/likability_details_header_widget.dart';
 import 'package:grand_chase_farm_guide/likability_details/widgets/likability_episode_widget/likability_episode_widget.dart';

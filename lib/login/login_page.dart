@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:grand_chase_farm_guide/core/app_images.dart';
 import 'package:grand_chase_farm_guide/core/text_styles.dart';
