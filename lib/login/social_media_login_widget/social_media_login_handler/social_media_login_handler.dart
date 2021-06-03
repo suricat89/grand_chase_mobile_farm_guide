@@ -1,4 +1,4 @@
-import 'package:grand_chase_farm_guide/login/social_media_login_widget/social_media_login_widget.dart';
+import 'package:grand_chase_farm_guide/shared/enum/social_media_enum.dart';
 import 'facebook_login_handler.dart';
 import 'google_login_handler.dart';
 

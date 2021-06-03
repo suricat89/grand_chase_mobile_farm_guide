@@ -4,6 +4,7 @@ import 'package:grand_chase_farm_guide/core/app_images.dart';
 import 'package:grand_chase_farm_guide/core/text_styles.dart';
 import 'package:grand_chase_farm_guide/login/login_form_widget/login_form_widget.dart';
 import 'package:grand_chase_farm_guide/login/social_media_login_widget/social_media_login_widget.dart';
+import 'package:grand_chase_farm_guide/shared/enum/social_media_enum.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key}) : super(key: key);
