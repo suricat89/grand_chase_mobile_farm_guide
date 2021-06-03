@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grand_chase_farm_guide/core/app_colors.dart';
 import 'package:grand_chase_farm_guide/core/text_styles.dart';
-import 'package:grand_chase_farm_guide/login/login_form_widget/create_account_widget/create_account_controller.dart';
+import 'package:grand_chase_farm_guide/login/create_account_widget/create_account_controller.dart';
 import 'package:grand_chase_farm_guide/shared/models/password_criteria_model.dart';
 
 class CreateAccountWidget extends StatelessWidget {

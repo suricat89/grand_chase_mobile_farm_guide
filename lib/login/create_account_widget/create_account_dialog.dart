@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:grand_chase_farm_guide/login/login_form_widget/create_account_widget/create_account_widget.dart';
+import 'package:grand_chase_farm_guide/login/create_account_widget/create_account_widget.dart';
 
 class CreateAccountDialog extends SimpleDialog {
   CreateAccountDialog({Key? key})
